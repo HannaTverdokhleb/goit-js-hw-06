@@ -14,5 +14,3 @@ for (let i = 0; i < ingredients.length; i++) {
   listItem.classList = 'item';
   list.append(listItem);
 }
-
-
