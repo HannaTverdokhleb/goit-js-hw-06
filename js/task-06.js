@@ -1,20 +1,14 @@
-const inputSix = document.querySelector('#validation-input');
-const inputSixAtrValue = inputSix.getAttribute('data-length');
+document.querySelector('#validation-input')?.addEventListener("blur", (e) => {
 
-inputSix.addEventListener("focus", () => {
-  inputSix.classList.toggle('');
-});
+    const input = e.target;
+    const inputLength = input.value.length;
+    const maxLength = input.dataset.length;
 
-inputSix.addEventListener("blur", () => {
-    if (inputSix.value.length >= inputSixAtrValue) {
-        inputSix.classList.remove('invalid')
-        inputSix.classList.add('valid');
-    }
-    else if (inputSix.value.length < inputSixAtrValue && inputSix.value.length != 0) {
-        inputSix.classList.remove('valid');
-        inputSix.classList.add('invalid');
-    }
-    else {
-        inputSix.classList.remove('invalid', 'valid');
+    if(parseInt(inputLength) === parseInt(maxLength)) {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
+    } else {
+        input.classList.remove('valid');
+        input.classList.add('invalid');
     }
 });

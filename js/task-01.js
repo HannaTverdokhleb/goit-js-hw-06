@@ -1,19 +1,10 @@
-const catsNumber = document.querySelectorAll('.item').length;
-console.log("Number of categories:", catsNumber);
+const cats = document.querySelectorAll('.item');
+console.log("Number of categories:", cats.length);
 
-const firstCatText = document.querySelector(".item h2");
-const firstCatsNumberOfChildren = document.querySelectorAll('#categories .item:first-child ul li').length;
-console.log("Category:", firstCatText.innerHTML);
-console.log("Elements:", firstCatsNumberOfChildren);
+cats.forEach( cat => {
+    const h2 = cat.querySelector('h2');
+    console.log("Category:", h2.innerText);
+    const subItems = cat.querySelectorAll('ul li');
+    console.log("Elements:", subItems.length);
 
-const secondCatText = document.querySelector(".item:nth-child(2) h2");
-const secondCatsNumberOfChildren = document.querySelectorAll('#categories .item:nth-child(2) ul li').length;
-console.log("Category:", secondCatText.innerHTML);
-console.log("Elements:", secondCatsNumberOfChildren);
-
-const thirdCatText = document.querySelector(".item:nth-child(3) h2");
-const thirdCatsNumberOfChildren = document.querySelectorAll('#categories .item:nth-child(3) ul li').length;
-console.log("Category:", thirdCatText.innerHTML);
-console.log("Elements:", thirdCatsNumberOfChildren);
-
-
+})
